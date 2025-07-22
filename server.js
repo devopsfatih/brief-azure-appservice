@@ -160,6 +160,22 @@ async function loadAzureSecrets() {
 // API ENDPOINTS
 // =============================================================================
 
+app.get('/', (req, res) => {
+  res.json({
+    message: '🎉 Bienvenue sur TechMart Payment API !',
+    service: 'TechMart Payment API',
+    version: '1.0.0',
+    status: 'Running on Azure App Service',
+    endpoints: {
+      health: '/health',
+      info: '/api/info',
+      payments: '/api/payments',
+      stats: '/api/stats'
+    },
+    documentation: 'API pour les paiements TechMart'
+  });
+});
+
 // Health Check
 app.get('/health', async (req, res) => {
   const health = {
