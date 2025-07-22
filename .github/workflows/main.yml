@@ -26,10 +26,14 @@ jobs:
     
     - name: Run tests
       run: npm test
+      
+    - name: Azure Login
+      uses: azure/login@v2
+      with:
+        publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_AE90DE89EC524079903FD29A6B940E2 }}
     
     - name: Deploy to Azure App Service
       uses: azure/webapps-deploy@v3
       with:
         app-name: ${{ env.AZURE_WEBAPP_NAME }}
-        publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_AE90DE89EC524079903FD29A6B940E2 }}
         package: '.'
