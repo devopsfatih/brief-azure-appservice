@@ -7,8 +7,6 @@ on:
 
 env:
   AZURE_WEBAPP_NAME: fok-app-techmart
-  AZURE_WEBAPP_PACKAGE_PATH: '.'
-  NODE_VERSION: '20.x'
 
 jobs:
   build-and-deploy:
@@ -20,7 +18,7 @@ jobs:
     - name: Set up Node.js
       uses: actions/setup-node@v4
       with:
-        node-version: ${{ env.NODE_VERSION }}
+        node-version: '20.x'
         cache: 'npm'
     
     - name: Install dependencies
@@ -30,8 +28,7 @@ jobs:
       run: npm test
     
     - name: Deploy to Azure App Service
-      uses: azure/webapps-deploy@v3
+      uses: azure/webapps-deploy@v2
       with:
         app-name: ${{ env.AZURE_WEBAPP_NAME }}
         publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_AE90DE89EC524079903FD29A6B940E2 }}
-        package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
