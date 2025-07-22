@@ -28,7 +28,8 @@ jobs:
       run: npm test
     
     - name: Deploy to Azure App Service
-      uses: azure/webapps-deploy@v2
+      uses: azure/webapps-deploy@v3
       with:
         app-name: ${{ env.AZURE_WEBAPP_NAME }}
         publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_AE90DE89EC524079903FD29A6B940E2 }}
+        package: '.'
