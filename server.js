@@ -162,7 +162,7 @@ async function loadAzureSecrets() {
 
 app.get('/', (req, res) => {
   res.json({
-    message: '🎉 Bienvenue sur TechMart Payment API !',
+    message: '🎉 Welcome to TechMart Payment API !',
     service: 'TechMart Payment API',
     version: '1.0.0',
     status: 'Running on Azure App Service',
