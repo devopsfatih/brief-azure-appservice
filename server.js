@@ -31,9 +31,7 @@ let redisClient = null;
 // Configuration Key Vault
 const keyVaultName = process.env.KEY_VAULT_NAME || 'fokkvdev5d3e97ea';
 const keyVaultUrl = `https://${keyVaultName}.vault.azure.net`;
-const credential = new DefaultAzureCredential({
-  managedIdentityClientId: process.env.AZURE_CLIENT_ID
-});
+const credential = new DefaultAzureCredential();
 const secretClient = new SecretClient(keyVaultUrl, credential);
 
 
